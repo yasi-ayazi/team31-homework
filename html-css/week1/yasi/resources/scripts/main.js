@@ -620,7 +620,7 @@ const sidebars = document.querySelector(".sidebars");
 let observer = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
-      if (entry.target.classList.contains("content-body")) {
+      if (entry.target.classList.contains("main")) {
         if (entry.isIntersecting) {
           sidebars.style.opacity = 1;
         } else {
@@ -664,7 +664,7 @@ let observer3 = new IntersectionObserver(
   }
 );
 
-document.querySelectorAll(".content-body").forEach((el) => {
+document.querySelectorAll(".main").forEach((el) => {
   observer.observe(el);
 });
 
