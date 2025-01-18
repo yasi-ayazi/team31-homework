@@ -903,19 +903,72 @@ footer {
     width: 40rem;
   }
 
-  @media screen and (max-width: 750px) {
-    .hero h1 {
-      text-wrap: nowrap;
+  /* Media Queries */
+
+  /* Small Devices (up to 600px width) */
+  @media screen and (max-width: 600px) {
+    :root {
+      font-size: 10px;
+    }
+
+    body {
+      padding: 0 1rem;
+      /* Add padding to prevent text from sticking to the edges */
     }
 
     .container {
-      max-width: 600px;
+      max-width: 100%;
+      /* Ensure the container doesn't overflow */
+      margin: 0 auto;
+      /* Center the content */
+      padding: 0 1rem;
+      /* Add inner padding for spacing */
+    }
+
+    .hero h1,
+    .hero h4,
+    .about-head,
+    .about-paragraph,
+    .contact-form {
+      text-align: center;
+      /* Center-align content */
+    }
+
+    .about-content,
+    .skills-wrapper {
+      flex-direction: column;
+      /* Stack elements vertically */
+      align-items: center;
+    }
+
+    .skill-container,
+    .project-format,
+    .contact-form {
+      width: 100%;
+      /* Use full width of the screen */
+      padding: 1rem;
+      /* Add padding to avoid sticking */
+    }
+
+    .form-input,
+    .form-button {
+      width: 100%;
+      /* Ensure form inputs/buttons fit the screen */
+    }
+
+    footer {
+      text-align: center;
+      /* Center the footer text */
+      padding: 1rem;
+      /* Add padding for spacing */
     }
   }
 
-  @media screen and (max-width: 700px) {
+
+  /* Tablets (601px to 1024px) */
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
     :root {
-      font-size: 11.5px;
+      font-size: 13px;
     }
 
     .hero h1 {
@@ -923,145 +976,31 @@ footer {
     }
 
     .container {
-      max-width: 550px;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    :root {
-      font-size: 11px;
-    }
-
-    .hero h1 {
-      font-size: 3.3rem;
-    }
-
-    .container {
-      max-width: 500px;
-    }
-
-    .skill-container {
-      width: auto;
-    }
-  }
-
-  @media screen and (max-width: 530px) {
-    .rounded {
-      height: 3rem;
-      margin-left: 0.25rem;
-    }
-
-    :root {
-      font-size: 10.5px;
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
-    }
-
-    .container {
-      max-width: 400px;
+      max-width: 750px;
     }
 
     .skill-container {
       width: 35rem;
     }
-
-    .project-img-format {
-      height: 20rem;
-    }
   }
 
-  @media screen and (max-width: 450px) {
+  /* Laptops and Larger Screens (1025px and above) */
+  @media screen and (min-width: 1025px) {
     :root {
-      font-size: 10px;
-    }
-
-    .container {
-      max-width: 375px;
-    }
-
-    .skill-container {
-      width: 32rem;
-    }
-
-    nav {
-      left: 5%;
-      right: 5%;
-    }
-  }
-
-  @media screen and (max-width: 380px) {
-    :root {
-      font-size: 9px;
+      font-size: 16px;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 4rem;
     }
 
     .container {
-      max-width: 310px;
+      max-width: 1200px;
     }
 
     .skill-container {
-      width: 30.5rem;
-    }
-
-    .main-heading {
-      font-size: 3rem;
+      width: 40rem;
     }
   }
 
-  @media screen and (max-width: 351px) {
-    .rounded {
-      display: none;
-    }
-
-    :root {
-      font-size: 9px;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-
-    .hero h4 {
-      font-size: 1.2rem;
-    }
-
-    .container {
-      max-width: 280px;
-    }
-
-    .skill-container {
-      width: 30.25rem;
-    }
-  }
-
-  @media screen and (max-width: 305px) {
-    :root {
-      font-size: 8.5px;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-
-    .hero h4 {
-      font-size: 1.2rem;
-    }
-
-    .container {
-      max-width: 260px;
-    }
-
-    .skill-container {
-      width: 29rem;
-    }
-
-    .skill-heading {
-      font-size: 2.5rem;
-    }
-  }
 }
