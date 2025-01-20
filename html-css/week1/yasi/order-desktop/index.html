@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="page-background">
+        <header class="order-header">
+            <div class="order-header-content">
+                <div class="left">
+                    <h1>Order Summary</h1>
+                    <p class="total-label">Total</p>
+                    <div class="line"></div>
+                    <p class="total-label bold">Total</p>
+                </div>
+                <div class="right">
+                    <p class="price">$333 / month</p>
+                    <p class="price bold">$100</p>
+                </div>
+            </div>
+        </header>
+        <main class="order-content">
+            <h3>Payment Method</h3>
+            <div class="payment-method">
+                <div class="method active">
+                    <img src="images/MasterCard Visa American Express logo.webp" alt="Credit / Debit">
+                    <p>Credit / Debit</p>
+                </div>
+                <div class="method">
+                    <img src="images/paypal-logo.webp" alt="PayPal">
+                    <p>PayPal</p>
+                </div>
+            </div>
+            <h3>Card Info</h3>
+            <div class="card-info">
+                <div class="field large">
+                    <label for="card-number">Card Number</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="card-number" placeholder="1234 1234 1234 1234">
+                        <span class="question-icon" title="Your card number can be found on the front of your card.">?</span>
+                    </div>
+                </div>
+                <div class="field small">
+                    <label for="expiry-date">Expiry Date</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="expiry-date" placeholder="MM / YY">
+                        <span class="question-icon" title="The expiry date is on the front of your card.">?</span>
+                    </div>
+                </div>
+                <div class="field medium">
+                    <label for="cvv">Security Code</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="cvv" placeholder="CVV">
+                        <span class="question-icon" title="The CVV is a 3-digit code on the back of your card.">?</span>
+                    </div>
+                </div>
+            </div>
+            <button class="buy-now">Buy Now</button>
+            <p class="help-link">Need Help?</p>
+        </main>
+    </div>
+</body>
+</html>
