@@ -1,369 +1,260 @@
-/* Reset styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    }
-    
+/* BODY */
 body {
-    font-family: 'Arial', sans-serif;
-    background: #ffffff; 
-    margin: 0;
-    }
-    
-.page-background {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding: 20px;
-    }
-    
-    /* Header */
-.order-header {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    height: 161px;
-    background: linear-gradient(92.74deg, #FD7B46 1.15%, #FE4E9B 98.48%);
-    color: #FFFFFF;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
+  font-family: Arial, sans-serif;
+  background: rgba(35, 16, 22, 0.3);
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-    .order-content h3 {
-        justify-content: center;
-    }
-    
-    /* Order Summary Title */
-.order-header .order-summary-title {
-        font-family: 'Arial', sans-serif;
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 28px;
-        margin-bottom: 20px;
-    }
-    
-    /* Total Labels */
-.order-header .total-label {
-    font-family: 'Arial', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    margin-bottom: 10px;
-    margin-top: 20px;
-}
-    
-.order-header .total-label.bold {
-    font-weight: 700;
-    }
-    
-    /* Line under Total */
-.order-header .line {
-    width: 100%;
-    max-width: 760px;
-    height: 1px;
-    background: #FFFFFF;
-    margin: 10px 0;
-    }
-    
-    /* Right Section */
-.order-header .right {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: right;
-    }
-    
-.order-header .right .price {
-    font-family: 'Arial', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    color: #FFFFFF;
-    margin-top: 20px;
-    }
-    
-.order-header .right .price.bold {
-    font-weight: 700;
-    margin-top: 5%;
-    position: relative;
-    top: 25px; /* Adjusted for better alignment */
-    }
-
-    /* Input wrapper for aligning icon */
-.input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
+/* HEADER */
+.header {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
-/* Question icon styling */
-.question-icon {
-    position: absolute;
-    right: 10px; /* Adjust as necessary */
-    top: 50%;
-    transform: translateY(-50%);
-    background: #3d3a3a;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: bold;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 1px solid #939393;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.header h1 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: bold;
 }
 
-.question-icon:hover {
-    background: #fe4e9b;
-    color: #fff;
+.header p {
+  font-size: 1rem;
+  margin: 5px 0 0;
 }
-    
-    /* Payment Method */
+
+/* MAIN CONTAINER */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+/* ORDER SUMMARY */
+.order-summary {
+  background: linear-gradient(92.74deg, #fd7b46 1.15%, #fe4e9b 98.48%);
+  color: white;
+  padding: 20px;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.order-summary h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.summary-details {
+  width: 100%;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.summary-item p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  margin: 10px 0;
+}
+
+/* PAYMENT METHOD */
 .payment-method {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 20px;
-    }
-    
-.method {
-    width: 100%;
-    max-width: 370px;
-    height: 110px;
-    background: #FFFFFF;
-    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    }
-    
-.method.active {
-    border: 4px solid #FE4E9B;
-    }
-    
-.method img {
-    width: auto;
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.payment-method h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.payment-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.option {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  width: 48%;
+  font-size: 0.9rem;
+}
+
+.option.selected {
+  border: 2px solid #ff6e7f;
+  background-color: #ffe5e9;
+}
+/* Payment Option Icons */
+.payment-icon {
+    margin: 0 auto 10px; /* Center icon and add space below */
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+/* Specific Sizes for Icons */
+.payment-icon.cards {
+    width: 138.5px;
+    height: 36px;
+  }
+  
+  .payment-icon.paypal {
+    width: 33.85px;
     height: 40px;
-    margin-bottom: 10px;
-    }
-    
-.method p {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-    color: #939393;
-    }
-    
-    /* Card Info */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px #000000);
+  }
+/* CARD INFO */
 .card-info {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin: 20px auto;
-    width: 100%;
-    max-width: 800px;
-    flex-wrap: nowrap;
-    }
-
-    /* Centering titles */
-.order-content h3 {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 20px; /* Adjust size if needed */
-    margin-top: 30px;
-    margin-bottom: 30px; /* Space below title */
-    color: #333; /* Optional: Change color if needed */
-}
-    
-.field {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    flex: 1;
-
-    }
-    
-.field label {
-    flex: 2; 
-    max-width: 350px;
-    }
-    
-.field input {
-    height: 44px;
-    width: 100%;
-    background: #F3F1F2;
-    border: 1px solid #939393;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 16px;
-    box-sizing: border-box;
-    }
-    .field.large {
-        flex: 2;
-        max-width: 350px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .field.large label {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 14px;
-        color: #333;
-        margin-bottom: 8px;
-    }
-    
-    .field.large input {
-        height: 44px;
-        background: #F3F1F2;
-        border: 1px solid #939393;
-        border-radius: 4px;
-        padding: 10px;
-        font-size: 16px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .field.small {
-        flex: 1;
-        max-width: 120px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .field.small label {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 14px;
-        color: #333;
-        margin-bottom: 8px;
-    }
-    
-    .field.small input {
-        height: 44px;
-        background: #F3F1F2;
-        border: 1px solid #939393;
-        border-radius: 4px;
-        padding: 10px;
-        font-size: 16px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .field.medium {
-        flex: 1.3;
-        max-width: 150px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .field.medium label {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 14px;
-        color: #333;
-        margin-bottom: 8px;
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
 }
 
-    .field.medium input {
-        height: 44px;
-        background: #F3F1F2;
-        border: 1px solid #939393;
-        border-radius: 4px;
-        padding: 10px;
-        font-size: 16px;
-        width: 100%;
-        box-sizing: border-box;
+.card-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
-    
-/* Buy Now Button */
+
+.form-inline {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.form-group label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 44px;
+  background: #f3f1f2;
+  border: 1px solid #939393;
+  border-radius: 4px;
+  padding: 10px 40px 10px 15px;
+}
+
+.input-wrapper input::placeholder {
+  color: #939393;
+}
+
+.help-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  line-height: 24px;
+  color: #939393;
+}
+
+/* BUTTON */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
 .buy-now {
-    width: 100%;
-    max-width: 260px;
-    height: 68px;
-    background: linear-gradient(92.74deg, #FD7B46 1.15%, #FE4E9B 98.48%);
-    border-radius: 34px;
-    color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin: 60px auto 20px auto;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    border: none;
-    }
-    
-.buy-now:hover {
-    opacity: 0.9;
-    }
-    
-    /* Need Help Link */
+  background: linear-gradient(92.74deg, #fd7b46 1.15%, #fe4e9b 98.48%);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  width: 100%;
+  max-width: 326px;
+  height: 50px;
+  margin: auto;
+}
+
 .help-link {
-    color: #FE4E9B;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
-    margin-top: 15px;
-    cursor: pointer;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .card-info {
-            flex-direction: column;
-            gap: 15px;
-        }
-        .field.large,
-        .field.small,
-        .field.medium {
-            max-width: 100%;
-        }
-        .field input {
-            font-size: 14px;
-            height: 40px;
-        }
-.order-summary-title {
-    font-size: 20px;
-    margin-bottom: 15px;
-    }
-    
-.total-label {
-    font-size: 16px;
-    margin-bottom: 8px;
-    }
-    
-.line {
-    width: 100%;
-    }
-    
-.payment-method {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    }
-    
-    
-.buy-now {
-    max-width: 100%;
-    }
-    }
-    
-    
+  font-size: 14px;
+  color: #fe4e9b;
+  margin-top: 10px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .main-container {
+    padding: 10px;
+    max-width: 90%;
+  }
+
+  .buy-now {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .main-container {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 769px) {
+  .main-container {
+    max-width: 500px;
+  }
+
+  .buy-now {
+    font-size: 1.2rem;
+  }
+}
