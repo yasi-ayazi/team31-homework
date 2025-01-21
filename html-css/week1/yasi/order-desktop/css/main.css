@@ -40,12 +40,12 @@ body {
 .main-container {
   display: flex;
   flex-direction: column;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 500px;
-  padding: 20px;
+  background: none; /* Transparent background */
+  padding: 0; /* No padding between sections */
+  margin: 0; /* No extra margin around container */
+  box-sizing: border-box;
 }
 
 /* ORDER SUMMARY */
@@ -55,12 +55,13 @@ body {
   padding: 20px;
   text-align: left;
   border-radius: 8px;
+  margin: 0; /* Remove white space around */
 }
 
 .order-summary h2 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
-  text-align: center;
+  margin: 0 0 15px 0; /* Only margin below the heading */
+  text-align: left;
 }
 
 .summary-details {
@@ -79,6 +80,29 @@ body {
   font-size: 1rem;
 }
 
+.summary-total-bold {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+
+  color: #ffffff;
+}
+.summary-price {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  color: #ffffff;
+}
 hr {
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.7);
@@ -89,7 +113,8 @@ hr {
 .payment-method {
   background: white;
   padding: 20px;
-  margin-top: 20px;
+  margin: 0; /* Remove space around */
+  box-sizing: border-box;
 }
 
 .payment-method h2 {
@@ -111,40 +136,54 @@ hr {
   border-radius: 8px;
   width: 48%;
   font-size: 0.9rem;
+  background: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .option.selected {
   border: 2px solid #ff6e7f;
   background-color: #ffe5e9;
+  box-shadow: 0px 4px 8px rgba(255, 110, 127, 0.3);
 }
+
 /* Payment Option Icons */
 .payment-icon {
-    margin: 0 auto 10px; /* Center icon and add space below */
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  
-/* Specific Sizes for Icons */
+  display: block;
+  margin: 0 auto 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .payment-icon.cards {
-    width: 138.5px;
-    height: 36px;
-  }
-  
-  .payment-icon.paypal {
-    width: 33.85px;
-    height: 40px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px #000000);
-  }
+  width: 138.5px;
+  height: 36px;
+}
+
+.payment-icon.paypal {
+  width: 33.85px;
+  height: 40px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+    drop-shadow(0px 4px 4px #000000);
+}
+
 /* CARD INFO */
 .card-info {
   background: white;
   padding: 20px;
-  margin-top: 20px;
+  margin: 0; /* Remove space around */
+  box-sizing: border-box;
 }
 
 .card-info h2 {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .form-inline {
@@ -193,12 +232,12 @@ hr {
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
-  background: #ffffff;
+  background: #5a5959;
   border-radius: 50%;
   font-size: 12px;
   text-align: center;
   line-height: 24px;
-  color: #939393;
+  color: #ffffff;
 }
 
 /* BUTTON */
