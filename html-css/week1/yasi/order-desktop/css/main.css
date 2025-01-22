@@ -277,6 +277,20 @@ hr {
     max-width: 90%;
   }
 
+  .card-info .form-inline {
+    flex-direction: column; /* Stack the rows vertically */
+    gap: 15px; /* Add space between rows */
+  }
+
+  .card-info .form-group {
+    width: 100%; /* Ensure each input takes full width */
+  }
+
+  .card-info .expiry-date-group,
+  .card-info .security-code-group {
+    flex: 1; /* Keep the expiry date and security code inputs equally spaced */
+  }
+
   .buy-now {
     font-size: 1rem;
   }
