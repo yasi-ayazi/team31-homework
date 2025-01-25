@@ -5,26 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payment Page</title>
     <link rel="stylesheet" href="css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Header Section -->
     <header class="header">
-      <h1>Some Header</h1>
-      <p>Some optional stuff.</p>
+      <h1 class="header__title">Some Header</h1>
+      <p class="header__description ">Some optional stuff.</p>
     </header>
   
     <!-- Main Content -->
     <main class="main-container">
       <!-- Order Summary Section -->
       <section class="order-summary">
-        <h2>Order Summary</h2>
-        <div class="summary-details">
+        <h2 class="order-summary__title">Order Summary</h2>
+        <div>
           <div class="summary-item">
             <p>Total</p>
             <p class="price">$333 / month</p>
           </div>
-          <hr />
-          <div class="summary-item">
+          
+          <div class="summary-item-box">
             <p class="summary-total-bold ">Total</p>
             <p class="price summary-price">$100</p>
           </div>
@@ -33,19 +34,19 @@
   
       <!-- Payment Method Section -->
       <section class="payment-method">
-        <h2>Payment Method</h2>
+        <h2 class="payment-method__headline">Payment Method</h2>
         <div class="payment-options">
           <!-- Credit/Debit Option -->
-          <div class="option selected">
+          <button class="option selected">
             <img src="./images/cards.png" alt="Credit / Debit" class="payment-icon cards" />
             <p>Credit / Debit</p>
-          </div>
+          </button>
       
           <!-- PayPal Option -->
-          <div class="option">
+          <button class="option">
             <img src="./images/paypal.png" alt="PayPal" class="payment-icon paypal" />
             <p>PayPal</p>
-          </div>
+          </button>
         </div>
       </section>
       
@@ -76,8 +77,11 @@
           </div>
         </form>
         <div class="button-container">
-          <button type="submit" class="buy-now">Buy Now</button>
-          <p class="help-link">Need Help?</p>
+          <button type="submit" class="primary-button">Buy Now</button>
+          
+        </div>
+        <div class="help">
+          <a href="#" class="help__link">Need Help?</a>
         </div>
       </section>
     </main>
