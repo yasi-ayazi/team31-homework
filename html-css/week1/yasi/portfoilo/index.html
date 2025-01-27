@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yasaman Ayazi | Student at HackYourFuture" />
+  <meta name="keywords" content="HTML, CSS, JavaScript, Web Development, Front-End, Software Engineer" />
+  <meta name="author" content="Yasaman Ayazi" />
+  <link rel="stylesheet" href="./resources/stylesheets/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="./resources/favicon/favicon.ico" />
+  <title>Yasaman Ayazi | Front-End Developer in Training</title>
+</head>
+
+<body>
+  <header class="head" id="landing">
+    <nav class="" id="nav-top">
+      <div class="nav-wrapper">
+        <ul class="nav-list">
+          <li class="list-item page-nav">Navigation</li>
+          <li class="list-item social-nav">Social</li>
+        </ul>
+      </div>
+    </nav>
+    <div class="head-wrapper">
+      <section class="container hero">
+        <canvas class="" id="canvas"></canvas>
+        <div class="hero-content mulish-reg">
+          <p>
+            Hi, I'm Yasaman Ayazi. A motivated learner diving into front-end development to create dynamic user
+            experiences.
+          </p>
+          <div class="text-cursor">
+            <h1>Front-End Web <span>Developer</span> in Training</h1>
+            <span class="rounded"></span>
+          </div>
+          <div style="overflow: hidden;"> 
+            <a href="#contact" class="contact-btn mulish-reg">Contact Me</a>
+          </div>
+        </div>
+        <div class="focus"></div>
+      </section>
+    </div>
+  </header>
+  <main class="main">
+    <section class="sidebars">
+      <div class="email-sidebar">
+        <a href="mailto: yasi.ayazi@gmail.com"> yasi.ayazi@gmail.com </a>
+      </div>
+      <div class="social-sidebar">
+        <a href="https://github.com/yasi-ayazi" target="_blank"><img  src="resources/icons/github-logo.svg" alt="github-logo"/>
+        </a>
+        <a href="https://www.linkedin.com/in/yasaman-ayazi/" target="_blank"><img src="resources/icons/linkedin-logo.svg" alt="linkedin-logo"/>
+        </a>
+      </div>
+    </section>
+    <section class="fade-in" id="about">
+      <div class="main-content container mulish-reg">
+        <h2 class="main-heading">
+          <span class="number fira-code-reg">// 01. </span>About Me
+        </h2>
+        <div class="about-content">
+          <div class="about-head">
+            <h3>Yasaman Ayazi</h3>
+            <h4>Front-End Developer in Training</h4>
+            <p>
+              I am passionate about learning web development and crafting engaging user interfaces.
+            </p>
+          </div>
+          <div class="about-paragraph">
+            <p>
+              I am currently enrolled in HackYourFuture, focusing on front-end development. I am building skills in
+              HTML, CSS, and JavaScript to create responsive and user-friendly websites.<br /><br />
+              I enjoy problem-solving and continuously learning to improve my technical abilities. My goal is to
+              contribute to impactful projects and grow as a developer in the tech industry.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="fade-in" id="skills">
+      <div class="main-content container mulish-reg">
+        <h2 class="main-heading">
+          <span class="number fira-code-reg">// 02. </span>Skills
+        </h2>
+        <div class="skills-wrapper">
+          <div class="shadow-effect">
+            <div class="skill">
+              <div class="skill-container">
+                <div class="skill-head">
+                  <img id="stack" class="skill-icon" src="./resources/icons/layers.svg" alt="HTML & CSS" />
+                  <h3 class="skill-heading">HTML & CSS</h3>
+                </div>
+                <div class="skill-body">
+                  <p>
+                    Strong understanding of semantic HTML and modern CSS for building responsive web pages.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-effect">
+            <div class="skill">
+              <div class="skill-container">
+                <div class="skill-head">
+                  <img id="javascript" class="skill-icon" src="./resources/icons/javascript.svg" alt="JavaScript" />
+                  <h3 class="skill-heading">JavaScript</h3>
+                </div>
+                <div class="skill-body">
+                  <p>
+                    Learning JavaScript to add interactivity and dynamic functionality to web applications.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-effect">
+            <div class="skill">
+              <div class="skill-container">
+                <div class="skill-head">
+                  <img id="design" class="skill-icon" src="resources/icons/figma-logo.svg" alt="Design Tools" />
+                  <h3 class="skill-heading">Design Tools</h3>
+                </div>
+                <div class="skill-body">
+                  <p>
+                    Basic knowledge of design tools like Figma for creating wireframes and prototypes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="fade-in-proj" id="projects">
+      <div class="main-content container mulish-reg">
+        <h2 class="main-heading">
+          <span class="number fira-code-reg">// 03. </span>Projects
+        </h2>
+        <div class="projects-container container"></div>
+      </div>
+    </section>
+    <section class="fade-in" id="contact">
+      <div class="main-content container mulish-reg">
+        <h2 class="main-heading">
+          <span class="number fira-code-reg">// 04. </span>Contact Me
+        </h2>
+        <form class="contact-form">
+          <div class="form-control">
+            <label for="name">Full name <span class="requirement">*</span></label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="name" />
+          </div>
+          <div class="form-control">
+            <label for="email">Email address <span class="requirement">*</span></label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="email" />
+          </div>
+          <div class="form-control">
+            <label for="message">Message <span class="requirement">*</span></label>
+            <textarea class="mulish-reg form-input" id="message" name="message" placeholder="message"></textarea>
+          </div>
+          <button class="form-button" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+    <footer class="mulish-reg footer-wrapper">
+      <small>© 2025 Yasaman Ayazi</small>
+  </footer>
+  </main>
+</body>
+<script src="./resources/scripts/main.js"></script>
+
+</html>
