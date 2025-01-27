@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <h1 class="header__title">Some Header</h1>
+      <p class="header__description ">Some optional stuff.</p>
+    </header>
+  
+    <!-- Main Content -->
+    <main class="main-container">
+      <!-- Order Summary Section -->
+      <section class="order-summary">
+        <h2 class="order-summary__title">Order Summary</h2>
+        <div>
+          <div class="order-summary__item">
+            <p class="order-summary__item__total">Total</p>
+            <p class="order-summary__item__price">$333 / month</p>
+          </div>
+          
+          <div class="order-summary__item-box">
+            <p class="order-summary__item-box__total-bold ">Total</p>
+            <p class="order-summary__item-box__price-bold">$100</p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Payment Method Section -->
+      <section class="payment-method">
+        <h2 class="payment-method__headline">Payment Method</h2>
+        <div class="payment-method__options">
+          <!-- Credit/Debit Option -->
+          <button class="payment-method__options__option selected">
+            <img src="./images/cards.png" alt="Credit / Debit" class="payment-icon cards" />
+            <p>Credit / Debit</p>
+          </button>
+      
+          <!-- PayPal Option -->
+          <button class="payment-method__options__option">
+            <img src="./images/paypal.png" alt="PayPal" class="payment-icon paypal" />
+            <p>PayPal</p>
+          </button>
+        </div>
+      </section>
+      
+  
+      <!-- Card Info Section -->
+      <section class="card-info">
+        <h2>Card Info</h2>
+        <form class="form-inline">
+          <div class="form-group card-number-group">
+            <label for="card-number">Card Number</label>
+            <div class="input-wrapper">
+              <input type="text" id="card-number" placeholder="1234 1234 1234 1234">
+              <span class="help-icon">?</span>
+            </div>
+          </div>
+          <div class="form-group expiry-date-group">
+            <label for="expiry-date">Expiry Date</label>
+            <div class="input-wrapper">
+              <input type="text" id="expiry-date" placeholder="MM / YY">
+            </div>
+          </div>
+          <div class="form-group security-code-group">
+            <label for="security-code">Security Code</label>
+            <div class="input-wrapper">
+              <input type="text" id="security-code" placeholder="CVV">
+              <span class="help-icon">?</span>
+            </div>
+          </div>
+        </form>
+        <div class="button-container">
+          <button type="submit" class="primary-button">Buy Now</button>
+          
+        </div>
+        <div class="help">
+          <a href="#" class="help__link">Need Help?</a>
+        </div>
+      </section>
+    </main>
+  </body>
+  
+</html>
