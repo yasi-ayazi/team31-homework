@@ -44,3 +44,12 @@ if (housePrice < juliaHousePrice) {
 } else {    
     console.log("Julia's house price is too low");
 }
+//fourth section
+console.log("Ez Namey:");
+//Startup name generator
+const firstWords = ["Easy", "Awesome", "Neural", "Meta", "Dynamic", "Tech", "Smart", "Agile", "Fix", "Hack"];
+const secondWords = ["Tools", "Solutions", "Apps", "Way", "Path", "Method","Future", "Systems" , "Networks", "Hub"];
+const randomFirstIndex = Math.floor(Math.random() * 10);
+const randomSecondIndex = Math.floor(Math.random() * 10);
+const startupName = firstWords[randomFirstIndex] + " " + secondWords[randomSecondIndex];
+console.log("The startup: '"+ startupName + "' contains " + startupName.length + " characters.");
