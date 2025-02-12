@@ -110,7 +110,7 @@ const candyPrices = {
   "chewing-gum": 0.03,
 };
 
-let amountToSpend = Math.random() * 100; // مقدار بودجه تصادفی
+let amountToSpend = Math.random() * 100;
 console.log("Total money to spend:", amountToSpend.toFixed(2));
 
 function addCandy(candyType, weight) {
