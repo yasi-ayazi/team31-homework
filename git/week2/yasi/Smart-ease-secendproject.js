@@ -1,19 +1,19 @@
 //Flight booking fullname function
-let fullname1 = getFullname("Sarah", "Tomes");
-let fullname2 = getFullname("Alice", "Baker", false);
-function getFullname(firstname, surname, useFormalName = true) {
-  if (!firstname || !surname) {
+function getFullName(firstName, surName, useFormalName = true) {
+  if (!firstName || !surName) {
     return "Invalid name";
   }
-  if (useFormalName === true) {
-    return "Lord" + " " + firstname + " " + surname;
+  if (useFormalName) {
+    return "Lord " + firstName + " " + surName;
   } else {
-    return firstname + " " + surname;
+    return firstName + " " + surName;
   }
 }
+let fullName1 = getFullName("Sarah", "Tomes");
+let fullName2 = getFullName("Alice", "Baker", false);
 // Testing the function
-console.log(fullname1);
-console.log(fullname2);
+console.log(fullName1);
+console.log(fullName2);
 
 //Event application
 function getEventWeekday(daysFromToday) {
@@ -55,7 +55,7 @@ console.log(clothesToWear);
 const class07Students = [];
 
 function addStudentToClass(studentName) {
-  if (studentName === "") {
+  if (!studentName) {
     console.log("Invalid name");
     return;
   }
@@ -70,7 +70,7 @@ function addStudentToClass(studentName) {
     return;
   }
 
-  if (class07Students.length > 6) {
+  if (class07Students.length >= 6) {
     console.log("Cannot add more students to class 07");
     return;
   }
@@ -101,8 +101,8 @@ addStudentToClass("");
 console.log("Number of students in class 07:", getNumberOfStudents());
 
 //Candy helper optional
-let boughtCandyPrices = [];
-let validPurchases = [];
+const boughtCandyPrices = [];
+const validPurchases = [];
 const candyPrices = {
   sweet: 0.5,
   chocolate: 0.7,
@@ -119,8 +119,8 @@ function addCandy(candyType, weight) {
     return;
   }
 
-  let price = candyPrices[candyType] * weight;
-  let totalPrice = boughtCandyPrices.reduce((sum, val) => sum + val, 0);
+  const price = candyPrices[candyType] * weight;
+  const totalPrice = boughtCandyPrices.reduce((sum, val) => sum + val, 0);
 
   if (totalPrice + price > amountToSpend) {
     console.log(`Not enough money! You can only spend up to ${amountToSpend.toFixed(2)}.`);
