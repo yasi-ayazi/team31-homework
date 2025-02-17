@@ -46,7 +46,7 @@ function calculateTravelTime(travelInformation) {
   return `${days} days, ${hours} hours and ${minutes} minutes`;
 }
 const travelTime = calculateTravelTime(travelInformation);
-console.log("Travel time is: ",travelTime); // 8 hours and 38 minutes*/
+console.log("Travel time is: ", travelTime); // 8 hours and 38 minutes*/
 
 // Series duration of my life
 const seriesDurations = [
@@ -75,8 +75,8 @@ function logOutSeriesText() {
 
   for (let i = 0; i < seriesDurations.length; i++) {
     const seriesTime =
-      (seriesDurations[i].days * 24 * 60) +
-      (seriesDurations[i].hours * 60) +
+      seriesDurations[i].days * 24 * 60 +
+      seriesDurations[i].hours * 60 +
       seriesDurations[i].minutes;
 
     const seriesPercentage = (seriesTime * 100) / totalLifeSpan;
@@ -145,12 +145,12 @@ logOutNotesFormatted();
 deleteNote(1);
 logOutNotesFormatted();
 
-//CactusIO-interactive (Smart phone usage app) 
+//CactusIO-interactive (Smart phone usage app)
 const activities = [];
-const usageLimit = 100; 
+const usageLimit = 100;
 
 function addActivity(activity, duration) {
-  let today = new Date().toLocaleDateString("en-US"); 
+  let today = new Date().toLocaleDateString("en-US");
   activities.push({ date: today, activity, duration });
 }
 
@@ -159,9 +159,12 @@ function showStatus() {
     return "Add some activities before calling showStatus";
   }
 
-  let today = new Date().toLocaleDateString("en-US"); 
-  let todayActivities = activities.filter(act => act.date === today); 
-  let totalDuration = todayActivities.reduce((sum, act) => sum + act.duration, 0);
+  let today = new Date().toLocaleDateString("en-US");
+  let todayActivities = activities.filter((act) => act.date === today);
+  let totalDuration = todayActivities.reduce(
+    (sum, act) => sum + act.duration,
+    0
+  );
 
   if (totalDuration > usageLimit) {
     return "You have reached your limit, no more smartphoning for you!";
@@ -175,9 +178,9 @@ function mostUsedActivity() {
     return "No activities recorded.";
   }
 
-  let activityDurations = {}; 
+  let activityDurations = {};
 
-  activities.forEach(act => {
+  activities.forEach((act) => {
     if (activityDurations[act.activity]) {
       activityDurations[act.activity] += act.duration;
     } else {
@@ -185,7 +188,7 @@ function mostUsedActivity() {
     }
   });
 
-  let maxActivity = Object.keys(activityDurations).reduce((a, b) => 
+  let maxActivity = Object.keys(activityDurations).reduce((a, b) =>
     activityDurations[a] > activityDurations[b] ? a : b
   );
 
@@ -196,8 +199,6 @@ addActivity("Youtube", 30);
 addActivity("Facebook", 20);
 addActivity("Instagram", 40);
 addActivity("TikTok", 15);
-
-
 
 // Display output
 console.log(showStatus());
