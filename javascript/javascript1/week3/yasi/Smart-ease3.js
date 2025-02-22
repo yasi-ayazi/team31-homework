@@ -1,5 +1,5 @@
 //Item array removal
-const names = [
+let names = [
   "Peter",
   "Ahmad",
   "Yana",
@@ -11,14 +11,10 @@ const names = [
 ];
 const nameToRemove = "Ahmad";
 
-// Write some code here
+//Write some code here
 function removeName(names, nameToRemove) {
-  for (let i = 0; i < names.length; i++) {
-    if (names[i] === nameToRemove) {
-      names.splice(i, 1);
-      break;
-    }
-  }
+  const indexOfPerson = names.indexOf("Ahmad");
+  names = names.filter((item) => item !== nameToRemove);
 }
 removeName(names, nameToRemove);
 // Code done
@@ -29,20 +25,29 @@ const travelInformation = {
   speed: 50,
   destinationDistance: 5421,
 };
-function timeForTravel(travelInformation) {
-  const time = travelInformation.destinationDistance / travelInformation.speed;
-  return time;
-}
 
 function calculateTravelTime(travelInformation) {
-  const totalTime = timeForTravel(travelInformation);
+  // Calculate total time in hours
+  const totalTime =
+    travelInformation.destinationDistance / travelInformation.speed;
+
+  // Calculate full days of travel
   const days = Math.floor(totalTime / 24);
+
+  // Calculate remaining distance after full days of travel
   const remainingDistance =
     travelInformation.destinationDistance - days * 24 * travelInformation.speed;
+
+  // Calculate remaining time in hours
   const time = remainingDistance / travelInformation.speed;
-  console.log(time);
+
+  // Extract hours from remaining time
   const hours = parseInt(time, 10);
+
+  // Calculate remaining minutes
   const minutes = Math.round((time - hours) * 60);
+
+  // Return formatted travel time
   return `${days} days, ${hours} hours and ${minutes} minutes`;
 }
 const travelTime = calculateTravelTime(travelInformation);
@@ -70,8 +75,8 @@ const seriesDurations = [
   },
 ];
 function logOutSeriesText() {
-  const totalLifeSpan = 80 * 365 * 24 * 60;
-  let totalSeriesTime = 0;
+  const totalLifeSpanHours = 80 * 365 * 24 * 60;
+  let totalSeriesTimeMinutes = 0;
 
   for (let i = 0; i < seriesDurations.length; i++) {
     const seriesTime =
@@ -79,15 +84,15 @@ function logOutSeriesText() {
       seriesDurations[i].hours * 60 +
       seriesDurations[i].minutes;
 
-    const seriesPercentage = (seriesTime * 100) / totalLifeSpan;
-    totalSeriesTime += seriesTime;
+    const seriesPercentage = (seriesTime * 100) / totalLifeSpanHours;
+    totalSeriesTimeMinutes += seriesTime;
     console.log(
       `${seriesDurations[i].title} took ${seriesPercentage.toFixed(
         3
       )}% of my life`
     );
   }
-  const totalPercentage = (totalSeriesTime / totalLifeSpan) * 100;
+  const totalPercentage = (totalSeriesTimeMinutes / totalLifeSpan) * 100;
   console.log(`\nIn total that is ${totalPercentage.toFixed(3)}% of my life`);
 }
 
@@ -97,6 +102,20 @@ logOutSeriesText(); // logs out the text found above
 const notes = [];
 
 function saveNote(content, id) {
+  if (typeof id === "number") {
+    id = id;
+  } else if (typeof id === "string") {
+    id = parseInt(id);
+  } else {
+    console.error(
+      "Error: ID must be a number or a string that can be converted to a number"
+    );
+    return;
+  }
+  if (typeof content === undefined) {
+    console.error("Error: content is empty");
+    return;
+  }
   notes.push({ content, id });
 }
 function getNote(id) {
@@ -150,18 +169,18 @@ const activities = [];
 const usageLimit = 100;
 
 function addActivity(activity, duration) {
-  let today = new Date().toLocaleDateString("en-US");
+  const today = new Date().toLocaleDateString("en-US");
   activities.push({ date: today, activity, duration });
 }
 
 function showStatus() {
-  if (activities.length === 0) {
+  if (!activities.length) {
     return "Add some activities before calling showStatus";
   }
 
-  let today = new Date().toLocaleDateString("en-US");
-  let todayActivities = activities.filter((act) => act.date === today);
-  let totalDuration = todayActivities.reduce(
+  const today = new Date().toLocaleDateString("en-US");
+  const todayActivities = activities.filter((act) => act.date === today);
+  const totalDuration = todayActivities.reduce(
     (sum, act) => sum + act.duration,
     0
   );
