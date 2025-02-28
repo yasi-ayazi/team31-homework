@@ -1,3 +1,3 @@
 function getCount(str) {
-    return (str.match(/[aeiou]/g) || []).length;
-  }
+  return (str.match(/[aeiouAEIOU]/g) || []).length;
+}
