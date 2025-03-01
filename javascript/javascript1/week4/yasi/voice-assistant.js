@@ -2,7 +2,7 @@ let userName = [];
 let todos = [];
 
 function getReply(command) {
-  command=command.toLowerCase();
+  command=command.replaceAll('?','').toLowerCase();
   if (command.includes("hello my name is")) {
     const name = command.replace("hello my name is", "");
     let formattedName = name.replaceAll(/\s/g, ""); // Remove all spaces
@@ -81,10 +81,10 @@ function getReply(command) {
 // Example for testing:
 console.log(getReply("Hello my name is Benjamin"));
 console.log(getReply("What is my name?"));
-console.log(getReply("Add fishing to my todo"));
-console.log(getReply("What is on my todo?"));
-console.log(getReply("Remove fishing from my todo"));
-console.log(getReply("What is on my todo?"));
+console.log(getReply("Add fishing to my list"));
+console.log(getReply("What is on my list?"));
+console.log(getReply("Remove fishing from my list"));
+console.log(getReply("What is on my list?"));
 console.log(getReply("What day is it today?"));
 console.log(getReply("What is 3 + 3?"));
 console.log(getReply("Set a timer for 1 minutes"));
