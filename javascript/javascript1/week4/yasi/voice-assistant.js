@@ -1,46 +1,52 @@
-let userName = "";
+let userName = [];
 let todos = [];
 
 function getReply(command) {
-  if (command.startsWith("hello my name is ")) {
-    const name = command.replace("hello my name is ", "");
-    if (userName && userName.toLowerCase() === name.toLowerCase()) {
-      return `You already told me your name is ${userName}.`;
+  if (command.includes("hello my name is")) {
+    const name = command.replace("hello my name is", "");
+    let formattedName = name.replaceAll(/\s/g, ""); // Remove all spaces
+
+    let found = userName.some(
+      (n) => n.toLowerCase() === formattedName.toLowerCase()
+    ); // Case-insensitive check
+    if (found) {
+      return `You already told me your name is ${name}.`;
     }
-    userName = name;
-    return `Nice to meet you, ${userName}.`;
+    userName.push(formattedName);
+    return `Nice to meet you, ${name}.`;
   }
 
-  if (command === "what is my name?") {
+  if (command.includes("what is my name")) {
     return userName
       ? `Your name is ${userName}.`
       : "I don't know your name yet.";
   }
 
-  if (command.startsWith("add ") && command.includes(" to my todo")) {
-    const task = command.replace("Add ", "").replace(" to my todo", "");
+  if (command.startsWith("add ") && command.includes(" to my list")) {
+    const task = command.replace("add ", "").replace(" to my list", "");
+    console.log(task);
     todos.push(task);
-    return `${task} added to your todo.`;
+    return `${task} added to your list.`;
   }
 
-  if (command.startsWith("remove ") && command.includes(" from my todo")) {
-    const task = command.replace("remove ", "").replace(" from my todo", "");
+  if (command.startsWith("remove ") && command.includes(" from my list")) {
+    const task = command.replace("remove ", "").replace(" from my list", "");
     const index = todos.indexOf(task);
     if (index > -1) {
       todos.splice(index, 1);
-      return `Removed ${task} from your todo.`;
+      return `Removed ${task} from your list.`;
     } else {
       return `${task} is not in your todo list.`;
     }
   }
 
-  if (command === "what is on my todo?") {
+  if (command.includes("what is on my list")) {
     return todos.length > 0
-      ? `You have ${todos.length} todos: ${todos.join(", ")}.`
-      : "Your todo list is empty.";
+      ? `You have ${todos.length} on your list: ${todos.join(", ")}.`
+      : "Your list is empty.";
   }
 
-  if (command === "what day is it today?") {
+  if (command.includes("what day is it today")) {
     const today = new Date();
     const options = { day: "numeric", month: "long", year: "numeric" };
     return today.toLocaleDateString("en-GB", options);
@@ -56,7 +62,7 @@ function getReply(command) {
     }
   }
 
-  if (command.startsWith("set a timer for ")) {
+  if (command.startsWith("set a timer for")) {
     const minutes = parseInt(
       command.replace("set a timer for ", "").replace(" minutes", "")
     );

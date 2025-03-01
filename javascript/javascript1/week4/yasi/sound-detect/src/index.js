@@ -146,11 +146,11 @@ function getReply(command) {
 }
 
 // Check if `getReply` exists
-function isgetReplyAvailable() {
+function isGetReplyAvailable() {
   return typeof getReply !== "undefined" && typeof getReply === "function";
 }
 
-if (isgetReplyAvailable()) {
+if (isGetReplyAvailable()) {
   let command = "";
   let timeoutId;
   let setIntervalTimer;
@@ -180,7 +180,7 @@ if (isgetReplyAvailable()) {
     }, 5000);
   });
 
-  var UserDictation = artyom.newDictation({
+  let UserDictation = artyom.newDictation({
     continuous: false,
     onResult: function (text) {
       if (text.length > command.length && text !== lastResponse) {
