@@ -1,213 +1,139 @@
 import "./styles.scss";
-import Artyom from "artyom.js";
 
+// Or if installed from NPM to use with a bundler
+import Artyom from "artyom.js";
+// const artyom = require("artyom.js");
 const artyom = new Artyom();
 
-let userName = ""; // Store user's name
-let todoList = []; // Store user's todo list
-let lastResponse = ""; // Prevent repeating the same response
-// Joke database
-const jokes = [
-  "Why don't skeletons fight each other? Because they don't have the guts!",
-  "I told my wife she should embrace her mistakes. She gave me a hug.",
-  "Parallel lines have so much in common. It’s a shame they’ll never meet.",
-  "Why did the scarecrow win an award? Because he was outstanding in his field!",
-  "Why can't your nose be 12 inches long? Because then it would be a foot!",
-];
+let userName = [];
+let todos = [];
 
-// Define commands (Using Artyom.js standard)
-const commands = [
-  {
-    indexes: ["hello I'm *", "hello my name is *"],
-    smart: true,
-    action: (i, wildcard) => {
-      wildcard = wildcard.trim(); // Ensure clean input
-      if (userName === wildcard) {
-        return `You've already told me your name is ${userName}.`;
-      }
-      userName = wildcard;
-      return `Nice to meet you, ${userName}.`;
-    },
-  },
-  {
-    indexes: ["what is my name"],
-    action: () => {
-      return userName
-        ? `Your name is ${userName}.`
-        : "I don't know your name yet.";
-    },
-  },
-  {
-    indexes: ["add * to my todo"],
-    smart: true,
-    action: (i, wildcard) => {
-      todoList.push(wildcard.trim());
-      return `${wildcard} added to your todo.`;
-    },
-  },
-  {
-    indexes: ["remove * from my todo"],
-    smart: true,
-    action: (i, wildcard) => {
-      let task = wildcard.trim();
-      let index = todoList.indexOf(task);
-      if (index > -1) {
-        todoList.splice(index, 1);
-        return `Removed ${task} from your todo.`;
-      }
-      return `${task} is not in your todo list.`;
-    },
-  },
-  {
-    indexes: ["what is on my todo"],
-    action: () => {
-      return todoList.length > 0
-        ? `You have ${todoList.length} todos: ${todoList.join(" and ")}.`
-        : "Your todo list is empty.";
-    },
-  },
-  {
-    indexes: ["what day is it today"],
-    action: () => {
-      const today = new Date();
-      return `Today is ${today.toDateString()}.`;
-    },
-  },
-  {
-    indexes: ["what is * plus *"],
-    smart: true,
-    action: (i, num1, num2) =>
-      `The answer is ${parseInt(num1) + parseInt(num2)}.`,
-  },
-  {
-    indexes: ["what is * minus *"],
-    smart: true,
-    action: (i, num1, num2) =>
-      `The answer is ${parseInt(num1) - parseInt(num2)}.`,
-  },
-  {
-    indexes: ["what is * times *"],
-    smart: true,
-    action: (i, num1, num2) =>
-      `The answer is ${parseInt(num1) * parseInt(num2)}.`,
-  },
-  {
-    indexes: ["what is * divided by *"],
-    smart: true,
-    action: (i, num1, num2) =>
-      num2 != 0
-        ? `The answer is ${parseInt(num1) / parseInt(num2)}`
-        : "Cannot divide by zero.",
-  },
-  {
-    indexes: ["set a timer for * minutes"],
-    smart: true,
-    action: (i, minutes) => {
-      setTimeout(() => {
-        artyom.say("Timer done!");
-        console.log("Timer done!");
-      }, parseInt(minutes) * 60000);
-      return `Timer set for ${minutes} minutes.`;
-    },
-  },
-  {
-    indexes: ["tell me a joke"],
-    action: () => {
-      const joke = jokes[Math.floor(Math.random() * jokes.length)];
-      return joke;
-    },
-  },
-];
-
-// Register commands in Artyom
-artyom.addCommands(commands);
-
-// Function to process recognized speech
 function getReply(command) {
-  console.log("Processing command:", command);
+  if (command.includes("hello my name is")) {
+    const name = command.replace("hello my name is", "");
+    let formattedName = name.replaceAll(/\s/g, ""); // Remove all spaces
 
-  let response = null;
+    let found = userName.some(
+      (n) => n.toLowerCase() === formattedName.toLowerCase()
+    ); // Case-insensitive check
+    if (found) {
+      return `You already told me your name is ${name}.`;
+    }
+    userName.push(formattedName);
+    return `Nice to meet you, ${name}.`;
+  }
 
-  // Check if the command matches any defined commands
-  commands.forEach((cmd) => {
-    cmd.indexes.forEach((index) => {
-      let pattern = index.replace(/\*/g, "(.*)");
-      let match = command.match(new RegExp(pattern, "i"));
+  if (command.includes("what is my name")) {
+    return userName
+      ? `Your name is ${userName}.`
+      : "I don't know your name yet.";
+  }
 
-      if (match) {
-        response = cmd.smart
-          ? cmd.action(match.index, ...match.slice(1))
-          : cmd.action();
-      }
-    });
-  });
+  if (command.startsWith("add ") && command.includes(" to my list")) {
+    const task = command.replace("add ", "").replace(" to my list", "");
+    console.log(task);
+    todos.push(task);
+    return `${task} added to your list.`;
+  }
 
-  return response;
+  if (command.startsWith("remove ") && command.includes(" from my list")) {
+    const task = command.replace("remove ", "").replace(" from my list", "");
+    const index = todos.indexOf(task);
+    if (index > -1) {
+      todos.splice(index, 1);
+      return `Removed ${task} from your list.`;
+    } else {
+      return `${task} is not in your todo list.`;
+    }
+  }
+
+  if (command.includes("what is on my list")) {
+    return todos.length > 0
+      ? `You have ${todos.length} on your list: ${todos.join(", ")}.`
+      : "Your list is empty.";
+  }
+
+  if (command.includes("what day is it today")) {
+    const today = new Date();
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    return today.toLocaleDateString("en-GB", options);
+  }
+
+  if (command.startsWith("what is ")) {
+    const expression = command.replace("what is ", "").replace("?", "");
+    try {
+      const result = eval(expression);
+      return result;
+    } catch (error) {
+      return "I can't calculate that.";
+    }
+  }
+
+  if (command.startsWith("set a timer for")) {
+    const minutes = parseInt(
+      command.replace("set a timer for ", "").replace(" minutes", "")
+    );
+    if (!isNaN(minutes)) {
+      setTimeout(() => artyom.say("Timer done!"), minutes * 60000);
+      return `Timer set for ${minutes} minutes.`;
+    } else {
+      return "I couldn't set a timer.";
+    }
+  }
+
+  return "I don't understand that command.";
 }
-
-// Check if `getReply` exists
-function isGetReplyAvailable() {
+function isgetReplyAvailable() {
   return typeof getReply !== "undefined" && typeof getReply === "function";
 }
 
-if (isGetReplyAvailable()) {
-  let command = "";
+if (isgetReplyAvailable()) {
+  let command;
   let timeoutId;
   let setIntervalTimer;
 
   const button = document.querySelector("button");
   button.addEventListener("click", () => {
     button.innerHTML = "Talk now 🙂";
-
     setIntervalTimer = setInterval(() => {
-      button.innerHTML = Math.random() < 0.5 ? "Talk now 😮" : "Talk now 🙂";
+      const randomNumber = Math.floor(Math.random() * 6) + 2;
+      if (randomNumber % 2 === 0) {
+        button.innerHTML = "Talk now 😮";
+      } else {
+        button.innerHTML = "Talk now 🙂";
+      }
     }, 100);
-
     clearTimeout(timeoutId);
-    command = "";
 
+    command = "";
     timeoutId = setTimeout(() => {
       clearInterval(setIntervalTimer);
       const response = getReply(command);
 
-      if (response && response !== lastResponse) {
-        artyom.say(response);
-        console.log("Reply:", response);
-        lastResponse = response;
-      }
+      artyom.say(response);
 
       button.innerHTML = "Give a new command";
     }, 5000);
   });
 
-  let UserDictation = artyom.newDictation({
-    continuous: false,
+  var UserDictation = artyom.newDictation({
+    continuous: false, // Enable continuous if HTTPS connection
     onResult: function (text) {
-      if (text.length > command.length && text !== lastResponse) {
-        clearTimeout(timeoutId); // Stop processing until full command is captured
-        timeoutId = setTimeout(() => {
-          command = text.trim(); // Capture full spoken phrase
-          console.log("Recognized Command:", command);
-
-          const response = getReply(command);
-
-          if (response && response !== lastResponse) {
-            console.log("Response:", response);
-            artyom.say(response);
-            lastResponse = response;
-          }
-        }, 800); // Delay to ensure full phrase is captured
+      // Do something with the text
+      if (text.length > command.length) {
+        command = text;
+        console.log(command);
       }
     },
     onStart: function () {
-      console.log("Dictation started...");
+      console.log("Dictations started by the users");
     },
     onEnd: function () {
-      console.log("Dictation stopped.");
+      console.log("Dictation stopped by the user");
     },
   });
 
   UserDictation.start();
 } else {
-  alert("Add the getReply function!");
+  alert("add the getReply function!");
 }
