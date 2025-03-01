@@ -2,6 +2,7 @@ let userName = [];
 let todos = [];
 
 function getReply(command) {
+  command=command.toLowerCase();
   if (command.includes("hello my name is")) {
     const name = command.replace("hello my name is", "");
     let formattedName = name.replaceAll(/\s/g, ""); // Remove all spaces
