@@ -2,7 +2,6 @@
 CREATE TABLE Author (
     AuthorId INT AUTO_INCREMENT PRIMARY KEY,
     FullName VARCHAR(255) NOT NULL,
-    BirthDate DATE,
     Nationality VARCHAR(100)
 );
 --Table: Book
