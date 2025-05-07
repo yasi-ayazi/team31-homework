@@ -53,5 +53,10 @@ WHERE meal_id = 1
 ORDER BY created_at DESC;
 
 -- Sort all meals by average number of stars in the reviews
-SELECT Meal.*,
-    AVG(Review.stars) AS average_stars
+SELECT m.*, 
+    AVG(r.stars) AS average_stars 
+FROM Meal AS m
+LEFT JOIN Review AS r
+ON m.id = r.meal_id
+GROUP BY m.id
+ORDER BY average_stars DESC;
