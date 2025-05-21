@@ -1,10 +1,17 @@
 //GET /documents/:id
-
+import fs from "fs/promises";
 import express from "express";
-import { getDocumentById } from "../controllers/documentController.js";
 
-const router = express.Router();
+export const documentRoutes = express.Router();
 
-router.get("/documents/:id", getDocumentById);
+documentRoutes.get("/documents/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    const data = JSON.parse(await fs.readFile("documents.json", "utf-8"));
 
-export default router;
+    const doc = data.find((doc) => doc.id === id);
+    if (!doc) {
+        return res.status(404).send("Document not found");
+    }
+
+    res.json(doc);
+});
